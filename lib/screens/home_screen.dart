@@ -40,17 +40,11 @@ class HomePage extends StatelessWidget {
             SizedBox(
               height: 10,
             ),
-            // SingleChildScrollView(
-            //   scrollDirection: Axis.horizontal,
-            //   child:
-            //       Row(children: [for (var i = 0; i < 10; i++) storyCard('$i')]),
-            // ),
             Container(
               child: StoryCard(),
             ),
-
             Divider(
-              height: 30,
+              height: 0,
             ),
             FeedCard(),
           ],

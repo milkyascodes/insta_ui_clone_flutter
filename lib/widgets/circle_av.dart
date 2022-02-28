@@ -4,15 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
-Widget circleAvatar(double radius) {
+Widget circleAvatar(double radius, String img) {
   return CircleAvatar(
-    backgroundColor: Colors.grey[200],
+    // backgroundColor: Colors.grey[200],
+    backgroundImage: NetworkImage(img),
     child: Text(''),
     radius: radius,
   );
 }
 
-Widget storyCard(String text) {
+Widget storyCard(String text, String img) {
   return Container(
     width: 100,
     // color: Colors.grey,
@@ -21,7 +22,7 @@ Widget storyCard(String text) {
     child: Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        circleAvatar(40),
+        circleAvatar(40, img),
         SizedBox(
           height: 10,
         ),

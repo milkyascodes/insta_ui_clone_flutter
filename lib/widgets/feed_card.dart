@@ -99,7 +99,8 @@ class StoryCard extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             shrinkWrap: true,
             itemBuilder: (context, int index) {
-              return storyCard(data[index]['first_name'].toString());
+              return storyCard(data[index]['first_name'].toString(),
+                  data[index]['avatar'].toString());
             }),
       ),
     );
