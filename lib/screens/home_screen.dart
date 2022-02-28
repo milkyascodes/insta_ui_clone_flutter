@@ -34,12 +34,21 @@ class HomePage extends StatelessWidget {
         ),
       ),
       body: SingleChildScrollView(
-        child: Column(children: [
-          SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(
+              height: 10,
+            ),
+            SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child:
-                  Row(children: [for (var i = 0; i < 10; i++) storyCard('$i')]))
-        ]),
+                  Row(children: [for (var i = 0; i < 10; i++) storyCard('$i')]),
+            ),
+            Divider(
+              height: 30,
+            )
+          ],
+        ),
       ),
     );
   }

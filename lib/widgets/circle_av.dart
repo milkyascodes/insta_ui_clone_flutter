@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 
 Widget circleAvatar(double radius) {
   return CircleAvatar(
-    backgroundColor: Colors.amber,
+    backgroundColor: Colors.grey[200],
     child: Text(''),
     radius: radius,
   );
@@ -15,12 +15,18 @@ Widget circleAvatar(double radius) {
 Widget storyCard(String text) {
   return Container(
     width: 100,
-    color: Colors.grey,
-    margin: EdgeInsets.all(3),
-    height: 100,
+    // color: Colors.grey,
+    margin: EdgeInsets.all(4),
+    // height: 100,
     child: Column(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: [circleAvatar(40), Text(text)],
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        circleAvatar(40),
+        SizedBox(
+          height: 10,
+        ),
+        Text(text)
+      ],
     ),
   );
 }
