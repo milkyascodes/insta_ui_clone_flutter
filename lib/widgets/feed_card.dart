@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_insta_clone/widgets/circle_av.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
 import '../controllers/controller.dart';
@@ -54,14 +55,24 @@ class FeedCard extends StatelessWidget {
                       ),
                     ),
                     ButtonBar(
-                      alignment: MainAxisAlignment.start,
+                      alignment: MainAxisAlignment.spaceBetween,
                       children: [
+                        Row(
+                          children: [
+                            IconButton(
+                                onPressed: () {},
+                                icon: FaIcon(FontAwesomeIcons.heart)),
+                            IconButton(
+                                onPressed: () {},
+                                icon: FaIcon(FontAwesomeIcons.comment)),
+                            IconButton(
+                                onPressed: () {},
+                                icon: FaIcon(FontAwesomeIcons.paperPlane)),
+                          ],
+                        ),
                         IconButton(
                             onPressed: () {},
-                            icon: Icon(Icons.favorite_border)),
-                        IconButton(
-                            onPressed: () {},
-                            icon: Icon(Icons.chat_bubble_outline)),
+                            icon: FaIcon(FontAwesomeIcons.bookmark)),
                       ],
                     ),
                     //     ],
