@@ -87,20 +87,21 @@ class FeedCard extends StatelessWidget {
   }
 }
 
-// class StoryCard extends StatelessWidget {
-//   const StoryCard({Key? key}) : super(key: key);
-//   @override
-//   Widget build(BuildContext context) {
-//     return dataCtrl.obx(
-//       (data) => SingleChildScrollView(
-//         child: ListView.builder(
-//             itemCount: data!.length,
-//             scrollDirection: Axis.horizontal,
-//             shrinkWrap: true,
-//             itemBuilder: (context, int index) {
-//               return storyCard(data[index]['first_name'].toString());
-//             }),
-//       ),
-//     );
-//   }
-// }
+class StoryCard extends StatelessWidget {
+  const StoryCard({Key? key}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return dataCtrl.obx(
+      (data) => SizedBox(
+        height: 120,
+        child: ListView.builder(
+            itemCount: data!.length,
+            scrollDirection: Axis.horizontal,
+            shrinkWrap: true,
+            itemBuilder: (context, int index) {
+              return storyCard(data[index]['first_name'].toString());
+            }),
+      ),
+    );
+  }
+}
