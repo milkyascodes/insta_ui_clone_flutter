@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 
 import '../widgets/appbar.dart';
 import '../widgets/circle_av.dart';
+import '../widgets/feed_card.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -44,9 +45,12 @@ class HomePage extends StatelessWidget {
               child:
                   Row(children: [for (var i = 0; i < 10; i++) storyCard('$i')]),
             ),
+            // StoryCard(),
+
             Divider(
               height: 30,
-            )
+            ),
+            FeedCard(),
           ],
         ),
       ),
