@@ -10,24 +10,15 @@ import 'screens/profile.dart';
 import 'screens/reels_screen.dart';
 import 'screens/search_screen.dart';
 
-// class NavController extends GetxController {
-//   var tabIndex = 0;
-//   void changeTabIndex(index) {
-//     tabIndex = index;
-//     update();
-//   }
-// }
-
 NavController controller = Get.put(NavController());
 
-//
 class InstaScreen extends StatelessWidget {
   const InstaScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(),
+        // appBar: AppBar(),
         body: Obx(
           () => IndexedStack(
             index: controller.tabIndex.toInt(),
@@ -44,8 +35,7 @@ class InstaScreen extends StatelessWidget {
           () => NavigationBar(
             height: 60,
             selectedIndex: controller.tabIndex.toInt(),
-            onDestinationSelected: controller.tabIndex =
-                controller.tabIndex as RxInt,
+            onDestinationSelected: controller.tabIndex,
             destinations: [
               NavigationDestination(
                   icon: FaIcon(FontAwesomeIcons.home), label: 'Home'),
