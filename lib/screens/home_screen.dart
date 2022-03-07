@@ -44,7 +44,7 @@ class HomePage extends StatelessWidget {
               child: StoryCard(),
             ),
             Divider(
-              height: 0,
+              height: 10,
             ),
             FeedCard(),
           ],

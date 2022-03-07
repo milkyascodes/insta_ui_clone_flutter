@@ -31,7 +31,6 @@ class FeedCard extends StatelessWidget {
               //     backgroundImage: NetworkImage(data[index]['avatar']),
               //   ),
               // )
-
               return Card(
                 clipBehavior: Clip.antiAlias,
                 child: Column(
@@ -47,6 +46,7 @@ class FeedCard extends StatelessWidget {
                       height: 300,
                       color: Colors.grey[300],
                     ),
+                    // Image(image: NetworkImage(data[index]['avatar'])),
                     Padding(
                       padding: const EdgeInsets.all(16.0),
                       child: Text(
