@@ -6,6 +6,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
 import '../controllers/controller.dart';
+import '../controllers/fetch_api.dart';
 
 final dataCtrl = Get.put(DataController());
 
@@ -106,3 +107,32 @@ class StoryCard extends StatelessWidget {
     );
   }
 }
+
+// class ProfileCard extends StatefulWidget {
+//   const ProfileCard({Key? key}) : super(key: key);
+//   @override
+//   State<ProfileCard> createState() => _ProfileCardState();
+// }
+// class _ProfileCardState extends State<ProfileCard> {
+//   late Future futureAlbum;
+//   @override
+//   void initState() {
+//     super.initState();
+//     futureAlbum = getUser();
+//   }
+//   @override
+//   Widget build(BuildContext context) {
+//     return FutureBuilder(
+//       future: futureAlbum,
+//       builder: (context, snapshot) {
+//         if (snapshot.hasData) {
+//           return Text('hi');
+//         } else if (snapshot.hasError) {
+//           return Text('errrorrr 😴 ${snapshot.error}');
+//         }
+//         // By default, show a loading spinner.
+//         return const CircularProgressIndicator();
+//       },
+//     );
+//   }
+// }

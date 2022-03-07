@@ -13,6 +13,7 @@ class DataController extends GetxController with StateMixin<List<dynamic>> {
   @override
   void onInit() {
     super.onInit();
+
     provider.getFriends().then((value) {
       change(value, status: RxStatus.success());
     }, onError: (error) {

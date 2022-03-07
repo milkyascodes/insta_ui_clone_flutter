@@ -1,7 +1,7 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import 'controller.dart';
 
 class Provider extends GetConnect {
   Future getFriends() async {
@@ -13,4 +13,27 @@ class Provider extends GetConnect {
       return response.body['data'];
     }
   }
+
+  // if (response.hasError) {
+  //   print('error');
+  //   return Future.error(response.statusCode!);
+  // } else {
+  //   print(response.body['data']);
+  //   return response.body['data'];
+  // }
+
 }
+
+
+
+  // Future getUser() async {
+  //   final response = await get('https://reqres.in/api/users/1');
+
+  //   if (response.hasError) {
+  //     print('error');
+  //     return Future.error(response.statusCode!);
+  //   } else {
+  //     print(response.body['data']);
+  //     return response.body['data'];
+  //   }
+  // }
