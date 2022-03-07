@@ -114,6 +114,8 @@
 //             return Text('errrorrr 😴 ${snapshot.error}');
 //           }
 
+// ignore_for_file: prefer_const_constructors
+
 //           // By default, show a loading spinner.
 //           return const CircularProgressIndicator();
 //         },
@@ -134,6 +136,8 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+
+import '../widgets/profile_widgets.dart';
 
 Future<User> fetchUser() async {
   final response = await http.get(Uri.parse('https://reqres.in/api/users/1'));
@@ -191,23 +195,51 @@ class ProfilePageState extends State<ProfilePage> {
         primarySwatch: Colors.blue,
       ),
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Fetch Data Example'),
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(60.0),
+          child: appBar(
+            "Profile",
+            IconButton(
+              color: Colors.black,
+              icon: FaIcon(FontAwesomeIcons.plusSquare),
+              onPressed: () {},
+            ),
+            IconButton(
+              color: Colors.black,
+              icon: FaIcon(FontAwesomeIcons.bars),
+              onPressed: () {},
+            ),
+          ),
         ),
         body: Padding(
-          padding: const EdgeInsets.all(40.0),
+          padding: const EdgeInsets.all(10.0),
           child: Column(
             children: [
+              SizedBox(height: 30),
               FutureBuilder<User>(
                 future: futureUser,
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
                     return Column(
-                      // crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        circleAvatar(50, snapshot.data!.avatar),
-                        SizedBox(height: 10),
-                        Text(snapshot.data!.name)
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            circleAvatar(60, snapshot.data!.avatar),
+                            follwersCount(61, 'Posts', 23),
+                            follwersCount(700, 'Followers', 23),
+                            follwersCount(20, 'Following', 23),
+                          ],
+                        ),
+                        SizedBox(height: 20),
+                        Row(
+                          children: [
+                            follwersCount(snapshot.data!.name,
+                                ' About me, mkmkmkm link in bio', 18),
+                            SizedBox(),
+                            SizedBox(),
+                          ],
+                        )
                       ],
                     );
                   } else if (snapshot.hasError) {
