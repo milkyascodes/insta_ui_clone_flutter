@@ -215,7 +215,7 @@ class ProfilePageState extends State<ProfilePage> {
           padding: const EdgeInsets.all(10.0),
           child: Column(
             children: [
-              SizedBox(height: 30),
+              SizedBox(height: 10),
               FutureBuilder<User>(
                 future: futureUser,
                 builder: (context, snapshot) {
@@ -234,8 +234,10 @@ class ProfilePageState extends State<ProfilePage> {
                         SizedBox(height: 20),
                         Row(
                           children: [
-                            follwersCount(snapshot.data!.name,
-                                ' About me, mkmkmkm link in bio', 18),
+                            follwersCount(
+                                snapshot.data!.name,
+                                ' About me,there is link in bio Insta clone \n with flutter 🔥',
+                                19),
                             SizedBox(),
                             SizedBox(),
                           ],
@@ -250,6 +252,22 @@ class ProfilePageState extends State<ProfilePage> {
                   return const CircularProgressIndicator();
                 },
               ),
+              SizedBox(height: 30),
+              Flexible(
+                child: SizedBox(
+                  width: double.infinity,
+                  child: OutlinedButton(
+                      style: ButtonStyle(
+                          padding:
+                              MaterialStateProperty.all(EdgeInsets.all(14))),
+                      onPressed: () {},
+                      child: Text('Edit Profile',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                              color: Colors.black))),
+                ),
+              )
             ],
           ),
         ),
