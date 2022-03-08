@@ -114,7 +114,7 @@
 //             return Text('errrorrr 😴 ${snapshot.error}');
 //           }
 
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 //           // By default, show a loading spinner.
 //           return const CircularProgressIndicator();
@@ -215,6 +215,7 @@ class ProfilePageState extends State<ProfilePage> {
           padding: const EdgeInsets.all(10.0),
           child: Column(
             children: [
+              // ** user info
               SizedBox(height: 10),
               FutureBuilder<User>(
                 future: futureUser,
@@ -226,9 +227,9 @@ class ProfilePageState extends State<ProfilePage> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             circleAvatar(60, snapshot.data!.avatar),
-                            follwersCount(61, 'Posts', 23),
-                            follwersCount(700, 'Followers', 23),
-                            follwersCount(20, 'Following', 23),
+                            follwersCount(61, 'Posts', 23, true),
+                            follwersCount(700, 'Followers', 23, true),
+                            follwersCount(20, 'Following', 23, true),
                           ],
                         ),
                         SizedBox(height: 20),
@@ -237,7 +238,8 @@ class ProfilePageState extends State<ProfilePage> {
                             follwersCount(
                                 snapshot.data!.name,
                                 ' About me,there is link in bio Insta clone \n with flutter 🔥',
-                                19),
+                                19,
+                                false),
                             SizedBox(),
                             SizedBox(),
                           ],
@@ -252,14 +254,16 @@ class ProfilePageState extends State<ProfilePage> {
                   return const CircularProgressIndicator();
                 },
               ),
-              SizedBox(height: 30),
+
+              // ** edit button
+              SizedBox(height: 10),
               Flexible(
                 child: SizedBox(
                   width: double.infinity,
                   child: OutlinedButton(
                       style: ButtonStyle(
                           padding:
-                              MaterialStateProperty.all(EdgeInsets.all(14))),
+                              MaterialStateProperty.all(EdgeInsets.all(12))),
                       onPressed: () {},
                       child: Text('Edit Profile',
                           style: TextStyle(
@@ -267,6 +271,23 @@ class ProfilePageState extends State<ProfilePage> {
                               fontSize: 18,
                               color: Colors.black))),
                 ),
+              ),
+
+              // ** horz scroll
+              Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(' Discover people'),
+                      TextButton(
+                        onPressed: () {},
+                        child: Text('See All '),
+                      )
+                    ],
+                  ),
+                  DiscoverCard()
+                ],
               )
             ],
           ),

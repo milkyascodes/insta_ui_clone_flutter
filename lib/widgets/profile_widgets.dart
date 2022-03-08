@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
-Widget follwersCount(dynamic number, String text, double boldness) {
+Widget follwersCount(
+    dynamic number, String text, double boldness, bool isCenter) {
   return Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
+    crossAxisAlignment:
+        isCenter ? CrossAxisAlignment.center : CrossAxisAlignment.start,
     children: [
       Text(
         number.toString(),

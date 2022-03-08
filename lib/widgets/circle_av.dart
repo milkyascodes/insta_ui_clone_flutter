@@ -14,11 +14,15 @@ Widget circleAvatar(double radius, String img) {
 
 Widget storyCard(String text, String img) {
   return Container(
-    width: 100,
+    width: 130,
     margin: EdgeInsets.all(4),
     child: Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [circleAvatar(40, img), Text(text)],
+      children: [
+        circleAvatar(40, img),
+        SizedBox(height: 15),
+        Text(text),
+      ],
     ),
   );
 }
