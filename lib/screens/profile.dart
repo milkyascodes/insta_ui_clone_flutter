@@ -130,6 +130,7 @@ import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
 import '../widgets/appbar.dart';
+import '../widgets/discover_card.dart';
 import '../widgets/feed_card.dart';
 import 'dart:async';
 import 'dart:convert';
@@ -137,6 +138,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
+import '../widgets/highlights_card.dart';
 import '../widgets/profile_widgets.dart';
 
 Future<User> fetchUser() async {
@@ -211,85 +213,107 @@ class ProfilePageState extends State<ProfilePage> {
             ),
           ),
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Column(
-            children: [
-              // ** user info
-              SizedBox(height: 10),
-              FutureBuilder<User>(
-                future: futureUser,
-                builder: (context, snapshot) {
-                  if (snapshot.hasData) {
-                    return Column(
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            circleAvatar(60, snapshot.data!.avatar),
-                            follwersCount(61, 'Posts', 23, true),
-                            follwersCount(700, 'Followers', 23, true),
-                            follwersCount(20, 'Following', 23, true),
-                          ],
-                        ),
-                        SizedBox(height: 20),
-                        Row(
-                          children: [
-                            follwersCount(
-                                snapshot.data!.name,
-                                ' About me,there is link in bio Insta clone \n with flutter 🔥',
-                                19,
-                                false),
-                            SizedBox(),
-                            SizedBox(),
-                          ],
-                        )
-                      ],
-                    );
-                  } else if (snapshot.hasError) {
-                    return Text('${snapshot.error}');
-                  }
-
-                  // By default, show a loading spinner.
-                  return const CircularProgressIndicator();
-                },
-              ),
-
-              // ** edit button
-              SizedBox(height: 10),
-              Flexible(
-                child: SizedBox(
-                  width: double.infinity,
-                  child: OutlinedButton(
-                      style: ButtonStyle(
-                          padding:
-                              MaterialStateProperty.all(EdgeInsets.all(12))),
-                      onPressed: () {},
-                      child: Text('Edit Profile',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
-                              color: Colors.black))),
-                ),
-              ),
-
-              // ** horz scroll
-              Column(
+        body: SingleChildScrollView(
+          child: Container(
+            height: 10000,
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Column(
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  // ** user info
+                  SizedBox(height: 10),
+                  FutureBuilder<User>(
+                    future: futureUser,
+                    builder: (context, snapshot) {
+                      if (snapshot.hasData) {
+                        return Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                circleAvatar(60, snapshot.data!.avatar),
+                                follwersCount(61, 'Posts', 23, true),
+                                follwersCount(700, 'Followers', 23, true),
+                                follwersCount(20, 'Following', 23, true),
+                              ],
+                            ),
+                            SizedBox(height: 20),
+                            Row(
+                              children: [
+                                follwersCount(
+                                    snapshot.data!.name,
+                                    ' About me,there is link in bio Insta clone \n with flutter 🔥',
+                                    19,
+                                    false),
+                                SizedBox(),
+                                SizedBox(),
+                              ],
+                            )
+                          ],
+                        );
+                      } else if (snapshot.hasError) {
+                        return Text('${snapshot.error}');
+                      }
+
+                      // By default, show a loading spinner.
+                      return const CircularProgressIndicator();
+                    },
+                  ),
+
+                  // ** edit button
+                  SizedBox(height: 10),
+                  Flexible(
+                    child: SizedBox(
+                      width: double.infinity,
+                      child: OutlinedButton(
+                          style: ButtonStyle(
+                              padding: MaterialStateProperty.all(
+                                  EdgeInsets.all(12))),
+                          onPressed: () {},
+                          child: Text('Edit Profile',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                  color: Colors.black))),
+                    ),
+                  ),
+
+                  // ** horz scroll
+                  Column(
                     children: [
-                      Text(' Discover people'),
-                      TextButton(
-                        onPressed: () {},
-                        child: Text('See All '),
-                      )
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(' Discover people'),
+                          TextButton(
+                            onPressed: () {},
+                            child: Text('See All '),
+                          )
+                        ],
+                      ),
+                      DiscoverCard()
                     ],
                   ),
-                  DiscoverCard()
+
+                  // ** Story Hightlights
+                  SizedBox(height: 30),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      follwersCount(
+                          'Story Highlights',
+                          ' Keep your favourite stories on your profile',
+                          19,
+                          false),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      HighlightsCard(),
+                    ],
+                  ),
                 ],
-              )
-            ],
+              ),
+            ),
           ),
         ),
       ),
