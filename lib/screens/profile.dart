@@ -214,10 +214,10 @@ class ProfilePageState extends State<ProfilePage> {
           ),
         ),
         body: SingleChildScrollView(
-          child: Container(
-            height: 10000,
-            child: Padding(
-              padding: const EdgeInsets.all(10.0),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              height: 800,
               child: Column(
                 children: [
                   // ** user info
