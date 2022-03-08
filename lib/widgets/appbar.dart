@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 Widget appBar(String text, IconButton iconButton1, IconButton iconButton2) {
   return AppBar(

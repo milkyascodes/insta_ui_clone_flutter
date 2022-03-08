@@ -14,26 +14,14 @@ class Provider extends GetConnect {
     }
   }
 
-  // if (response.hasError) {
-  //   print('error');
-  //   return Future.error(response.statusCode!);
-  // } else {
-  //   print(response.body['data']);
-  //   return response.body['data'];
-  // }
+  Future<dynamic> getUser() async {
+    final response = await get('https://reqres.in/api/users/1');
 
+    if (response.hasError) {
+      return Future.error(response.statusCode!);
+    } else {
+      print(response.body['data']);
+      return response.body['data'];
+    }
+  }
 }
-
-
-
-  // Future getUser() async {
-  //   final response = await get('https://reqres.in/api/users/1');
-
-  //   if (response.hasError) {
-  //     print('error');
-  //     return Future.error(response.statusCode!);
-  //   } else {
-  //     print(response.body['data']);
-  //     return response.body['data'];
-  //   }
-  // }

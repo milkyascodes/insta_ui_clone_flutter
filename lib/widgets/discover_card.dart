@@ -2,11 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_insta_clone/widgets/circle_av.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
 import '../controllers/controller.dart';
-import '../controllers/fetch_api.dart';
 
 final dataCtrl = Get.put(DataController());
 
